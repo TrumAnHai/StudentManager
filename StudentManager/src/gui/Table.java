@@ -40,7 +40,7 @@ public class Table extends JTable  {
 	private MyTableModel tblModel = new MyTableModel();
 	private MyFrame myFrame;
 
-	private ArrayList<Student> sList;
+	private ArraylistStudent sList;
 	private ArraylistProvin pList;
 	private JButton btnFilter1 = new JButton();
 
@@ -48,7 +48,7 @@ public class Table extends JTable  {
 		super();
 		this.myFrame = _myFrame;
 		this.pList = _myFrame.getListProvin();
-		this.sList = _myFrame.getListStudent().getsList();
+		this.sList = _myFrame.getListStudent();
 		// JButton btnFilter1 = myFrame.getFilterPanel().btnFilter;
 //		btnFilter1 = myFrame.getFilterPanel().btnFilter;
 //		btnFilter1.addActionListener(this);
@@ -106,11 +106,11 @@ public class Table extends JTable  {
 		this.myFrame = myFrame;
 	}
 
-	public ArrayList<Student> getsList() {
+	public ArraylistStudent getsList() {
 		return sList;
 	}
 
-	public void setsList(ArrayList<Student> sList) {
+	public void setsList(ArraylistStudent sList) {
 		this.sList = sList;
 	}
 
@@ -167,7 +167,7 @@ public class Table extends JTable  {
 		@Override
 		public int getRowCount() {
 			// TODO Auto-generated method stub
-			return sList.size();
+			return sList.getsList().size();
 		}
 
 		public boolean isEditable(int _rowIndex, int _columnIndex) {
@@ -186,7 +186,7 @@ public class Table extends JTable  {
 //			Student student = (Student) IOdata.getListStudent().getStudent(_rowIndex);//get data from SQL
 //			String provin = IOdata.getListProvin().getProvin(student.getIdProvin()).getNameProvin();//get data from SQL
 			
-			Student student = sList.get(_rowIndex);
+			Student student = sList.getStudent(_rowIndex);
 			
 			switch (_columnIndex) {
 			case 0:

@@ -6,6 +6,7 @@ package gui;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -34,7 +35,7 @@ public class MyFrame extends JFrame {
 	public static int STATUS = WHEN_START;
 	private ArraylistStudent sList = new ArraylistStudent();
 	private ArraylistProvin pList = new ArraylistProvin();
-	private String textFile = "";
+	private String textFile = "C:\\Users\\Dao\\Documents\\data.txt";
 	MyMenu menu = new MyMenu(this);
 	FilterPanel filterPanel = new FilterPanel(this);
 	MyToolbar toolbar = new MyToolbar(this);
@@ -144,11 +145,7 @@ public class MyFrame extends JFrame {
 		this.table = table;
 	}
 
-//	public void openAction() {
-//		MyFrame.STATUS = WHEN_OPEN;
-//		ArraylistStudent sList = new ArraylistStudent();
-//		ArraylistProvin pList = new ArraylistProvin();
-//	}
+
 	public void saveAction(){
 		JFileChooser chooser = new JFileChooser();
 		//ExampleFileFilter filter = new ExampleFileFilter();
@@ -157,13 +154,13 @@ public class MyFrame extends JFrame {
 			String fileName = chooser.getSelectedFile().getName();
 			String path = chooser.getCurrentDirectory().getPath();
 			String filePath = path + "\\" + TextOutput.updateFileName(fileName);
-			//TextOutput.writeData(filePath, sList);
-			System.out.println(fileName);
-			System.out.println(path);
-			System.out.println(filePath);
 			if(TextOutput.writeData(filePath, sList)){
-				this.setTextFile(filePath);
-				System.out.println(sList);
+				for (int i =0; i< sList.getsList().size(); i++){
+					this.setTextFile(filePath);
+					System.out.println(sList);
+					
+				}
+				
 			}
 		}
 	}
@@ -174,9 +171,17 @@ public class MyFrame extends JFrame {
 	public void closeWindows(){
 		int result = JOptionPane.showConfirmDialog(this, "Do u want to quit?", "Confirm", JOptionPane.YES_NO_OPTION);
 		if ( result == JOptionPane.OK_OPTION){
-			//TextOutput.writeData(this.getTextFile(), sList);
-			this.dispose();
-			System.exit(0);
+			int result1 = JOptionPane.showConfirmDialog(this, "Do you want to save your data to a text file?","Confirm",JOptionPane.YES_NO_OPTION);
+			if (result1 == JOptionPane.OK_OPTION){
+				
+				TextOutput.writeData(this.getTextFile(), sList);
+				this.dispose();
+				System.exit(0);
+			}else {
+				this.dispose();
+				System.exit(0);
+			}
+			
 		} 
 	}
 }

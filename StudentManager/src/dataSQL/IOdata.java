@@ -43,7 +43,7 @@ public class IOdata {
 					double phyScore = rs.getDouble("phyScore");
 					double cheScore = rs.getDouble("cheScore");
 					Student s = new Student(CURRENT_CODE, name, addr, birth, sex, mathScore, phyScore, cheScore);
-					((ArraylistStudent) sList).addStudent(s);
+					sList.addStudent(s);
 				}
 
 			}
@@ -142,8 +142,8 @@ public class IOdata {
 	}
 
 	// test region
-	public static ArrayList<Student> listStudentFilter(String _idStudent, String _addr) {
-		ArrayList<Student> fList = new ArrayList<Student>();
+	public static ArraylistStudent listStudentFilter(String _idStudent, String _addr) {
+		ArraylistStudent fList = new ArraylistStudent();
 		int idProvin = IOdata.getListProvin().search(_addr);
 
 		Connection connect = DBConnect.open();
@@ -166,7 +166,7 @@ public class IOdata {
 					double cheScore = rs.getDouble("cheScore");
 
 					Student s = new Student(CURRENT_CODE, name, addr, birth, sex, mathScore, phyScore, cheScore);
-					fList.add(s);
+					fList.addStudent(s);
 
 				}
 			}
@@ -178,8 +178,8 @@ public class IOdata {
 		return fList;
 	}
 
-	public static ArrayList<Student> listStudentFilter(String _addr) {
-		ArrayList<Student> fList = new ArrayList<Student>();
+	public static ArraylistStudent listStudentFilter(String _addr) {
+		ArraylistStudent fList = new ArraylistStudent();
 		int idProvin = IOdata.getListProvin().search(_addr);
 		Connection connect = DBConnect.open();
 
@@ -202,7 +202,7 @@ public class IOdata {
 					double cheScore = rs.getDouble("cheScore");
 
 					Student s = new Student(CURRENT_CODE, name, addr, birth, sex, mathScore, phyScore, cheScore);
-					fList.add(s);
+					fList.addStudent(s);
 
 				}
 
@@ -216,8 +216,8 @@ public class IOdata {
 		return fList;
 	}
 
-	public static ArrayList<Student> listStudentFilter(int _idStudent) {
-		ArrayList<Student> fList = new ArrayList();
+	public static ArraylistStudent listStudentFilter(int _idStudent) {
+		ArraylistStudent fList = new ArraylistStudent();
 		Connection connect = DBConnect.open();
 		// ListStudent listS = new ListStudent();
 		try {
@@ -238,7 +238,7 @@ public class IOdata {
 					double cheScore = rs.getDouble("cheScore");
 
 					Student s = new Student(CURRENT_CODE, name, addr, birth, sex, mathScore, phyScore, cheScore);
-					fList.add(s);
+					fList.addStudent(s);
 
 				}
 

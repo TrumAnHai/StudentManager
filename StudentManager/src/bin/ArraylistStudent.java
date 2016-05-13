@@ -11,23 +11,24 @@ import java.util.ArrayList;
  *         UNSC
  */
 public class ArraylistStudent {
-	private ArrayList<Student> sList = new ArrayList<Student>();
-	private ArraylistProvin pList = new ArraylistProvin();
+	private ArrayList sList = new ArrayList();
+	private ArrayList pList = new ArrayList();
 
-	public ArraylistStudent() {
-
-	}
-
-	public ArraylistStudent(ArrayList<Student> _sList) {
-		this.sList = _sList;
-	}
-
-	public ArrayList<Student> getsList() {
+	
+	public ArrayList getsList() {
 		return sList;
 	}
 
-	public void setsList(ArrayList<Student> sList) {
+	public void setsList(ArrayList sList) {
 		this.sList = sList;
+	}
+
+	public ArrayList getpList() {
+		return pList;
+	}
+
+	public void setpList(ArrayList pList) {
+		this.pList = pList;
 	}
 
 	@Override
@@ -42,8 +43,8 @@ public class ArraylistStudent {
 
 	public String searchStudent(int _idStudent) {
 		for (int i = 0; i < sList.size(); i++) {
-			if (sList.get(i).getIdStudent() == _idStudent) {
-				return sList.get(i).getNameStudent();
+			if (((Student) sList.get(i)).getIdStudent() == _idStudent) {
+				return ((Student) sList.get(i)).getNameStudent();
 
 			}
 		}

@@ -23,7 +23,7 @@ public class AboutMe extends JDialog implements ActionListener {
 	public AboutMe(MyFrame _myFrame) {
 		setResizable(false);
 		setTitle("About me");
-		setBounds(_myFrame.getLocation().x + 200, _myFrame.getLocation().y + 250, 400, 320);
+		setBounds(_myFrame.getLocation().x + 200, _myFrame.getLocation().y + 250, 500, 350);
 		getContentPane().setLayout(new BorderLayout(2, 2));
 
 		JTextArea text = new JTextArea();
@@ -40,6 +40,7 @@ public class AboutMe extends JDialog implements ActionListener {
 		text.append("\t Class: CNTT 4\n\n");
 		text.append("\t Course: K55\n\n");
 		text.append("\t School: University of Transport and Communication\n\n");
+		text.append("\t Thanh's repository(Public): https://github.com/TrumAnHai/StudentManager");
 
 		btnCloseHelplog.addActionListener(this);
 	}

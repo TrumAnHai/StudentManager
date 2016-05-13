@@ -65,40 +65,40 @@ public class FilterPanel extends JPanel {
 				// test region
 				if (e.getSource() == btnFilter) {
 					if (txfID.getText().compareTo("") != 0 && txfProvin.getText().compareTo("") != 0) {
-						ArrayList<Student> list = IOdata.listStudentFilter(txfID.getText().trim(),
+						ArraylistStudent list = IOdata.listStudentFilter(txfID.getText().trim(),
 								txfProvin.getText().trim());
 						// end region
 						// ArrayList<Student> list =
 						// IOdata.listStudentFilter(txfProvin.getText().trim());
 						System.out.println(list);
-						for (Student i : list) {
-							System.out.println(i.toString());
+						for (int i =0; i< list.getsList().size();i++) {
+							System.out.println(list.getStudent(i).toString());
 						}
-						myFrame.getListStudent().setsList(list);
+						myFrame.setListStudent(list);;
 						myFrame.getTable().setsList(list);
 						myFrame.getTable().revalidate();
 					}
 					if (txfID.getText().compareTo("") == 0 && txfProvin.getText().compareTo("") != 0) {
-						ArrayList<Student> list = IOdata.listStudentFilter(txfProvin.getText().trim());
+						ArraylistStudent list = IOdata.listStudentFilter(txfProvin.getText().trim());
 						// end region
 						// ArrayList<Student> list =
 						// IOdata.listStudentFilter(txfProvin.getText().trim());
 						System.out.println(list);
-						for (Student i : list) {
-							System.out.println(i.toString());
+						for (int i =0; i< list.getsList().size();i++) {
+							System.out.println(list.getStudent(i).toString());
 						}
-						myFrame.getListStudent().setsList(list);
+						myFrame.setListStudent(list);
 						myFrame.getTable().setsList(list);
 						myFrame.getTable().revalidate();
 					}
 					if (txfID.getText().compareTo("") != 0 && txfProvin.getText().compareTo("") == 0) {
 						int idStudent = Integer.parseInt(txfID.getText().trim());
-						ArrayList<Student> list = IOdata.listStudentFilter(idStudent);
+						ArraylistStudent list = IOdata.listStudentFilter(idStudent);
 						System.out.println(list);
-						for (Student i : list) {
-							System.out.println(i.toString());
+						for (int i =0; i< list.getsList().size();i++) {
+							System.out.println(list.getStudent(i).toString());
 						}
-						myFrame.getListStudent().setsList(list);
+						myFrame.setListStudent(list);
 						myFrame.getTable().setsList(list);
 						myFrame.getTable().revalidate();
 					}
